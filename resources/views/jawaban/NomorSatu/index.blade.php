@@ -26,8 +26,8 @@
 							<form method="POST" action="{{ route('auth') }}">
 									@csrf 
 									<div class="form-group">
-											<label for="email">Email / Username</label>
-											<input type="text" class="form-control" id="email" name="email" placeholder="Enter email or username" required>
+										<label for="login">Email or Username</label>
+										<input type="text" name="login" id="login" class="form-control" required>
 									</div>
 									<div class="form-group">
 											<label for="password">Password</label>
