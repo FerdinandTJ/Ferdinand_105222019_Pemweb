@@ -8,30 +8,56 @@ use App\Models\Event;
 
 class NomorTiga {
 
-	public function getData () {
-		// Tuliskan code mengambil semua data jadwal user, simpan di variabel $data 
-		$data = [];
-		return $data;
-	}
+    public function getData() {
+        
+        $eventList = Event::where('user_id', Auth::id())->get();
+        return $eventList;
+    }
 
-	public function getSelectedData (Request $request) {
+    public function getSelectedData(Request $request) {
+        $request->validate([
+            'id' => 'required|exists:events,id'
+        ]);
 
-		// Tuliskan code mengambil 1 data jadwal user dengan id jadwal, simpan di variabel $data 
-		$data = [];
-		return response()->json($data);
-	}
+        $selectedEvent = Event::where('id', $request->id)
+            ->where('user_id', Auth::id())
+            ->firstOrFail();
 
-	public function update (Request $request) {
+        return response()->json($selectedEvent);
+    }
 
-		// Tuliskan code mengupdate 1 jadwal
-		return redirect()->route('event.home');
-	}
+    public function update(Request $request) {
+        $validatedData = $request->validate([
+            'id' => 'required|exists:events,id',
+            'event' => 'required|string|max:255',
+            'start' => 'required|date',
+            'end' => 'required|date|after:start',
+        ]);
 
-	public function delete (Request $request) {
+        $eventToUpdate = Event::where('id', $validatedData['id'])
+            ->where('user_id', Auth::id())
+            ->firstOrFail();
 
-		// Tuliskan code menghapus 1 jadwal
-		return redirect()->route('event.home');
-	}
+        $eventToUpdate->event_name = $validatedData['event'];
+        $eventToUpdate->start_time = $validatedData['start'];
+        $eventToUpdate->end_time = $validatedData['end'];
+        $eventToUpdate->save();
+
+        return redirect()->route('event.home')->with('Success', 'Event berhasil di update!');
+    }
+
+    public function delete(Request $request) {
+        $request->validate([
+            'id' => 'required|exists:events,id'
+        ]);
+
+        $eventToDelete = Event::where('id', $request->id)
+            ->where('user_id', Auth::id())
+            ->firstOrFail();
+
+        $eventToDelete->delete();
+
+        return redirect()->route('event.home')->with('Success', 'Event berhasil di delete!');
+    }
 }
-
-?>
+   

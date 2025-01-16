@@ -7,19 +7,28 @@ use Illuminate\Http\Request;
 
 class NomorSatu {
 
-	public function auth (Request $request) {
+    public function auth(Request $request) {
+        $loginCredentials = $request->validate([
+            'email' => ['required'],
+            'password' => ['required'],
+        ]);
 
-		// Tuliskan code untuk proses login dengan menggunakan email/username dan password
+        if (Auth::attempt($loginCredentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('event');
+        }
 
-		return redirect()->route('event.home');
-	}
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ]);
+    }
 
-	public function logout (Request $request) {
+    public function logout(Request $request) {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-		// Tuliskan code untuk menangani proses logout
-        
-        return redirect()->route('event.home');
-	}
+        return redirect()->intended('event');
+    }
 }
-
-?>
+  

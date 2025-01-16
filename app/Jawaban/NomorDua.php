@@ -10,10 +10,19 @@ class NomorDua {
 
 	public function submit (Request $request) {
 
-		// Tuliskan code untuk menyimpan data Jadwal
+		$rules = $request->validate([
+            'event' => 'required|string|max:255',
+            'start' => 'required|date',
+            'end' => 'required|date|after:start',
+        ]);
+
+		$newEvent = new Event();
+        $newEvent->event_name = $rules['event'];
+        $newEvent->start_time = $rules['start'];
+        $newEvent->end_time = $rules['end'];
+		$newEvent->user_id = Auth::id();
+        $newEvent->save();
 		
-		return redirect()->route('event.home');
+		return redirect()->route('event.home')->with('success', 'Schedule added successfully!');
 	}
 }
-
-?>

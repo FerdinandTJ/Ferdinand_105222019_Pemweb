@@ -10,7 +10,7 @@
 | the IoC container for the system binding all of the various parts.
 |
 */
-
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
@@ -53,3 +53,4 @@ $app->singleton(
 */
 
 return $app;
+

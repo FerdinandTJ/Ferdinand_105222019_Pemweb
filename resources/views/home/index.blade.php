@@ -10,7 +10,7 @@
 			<div class="col text-right">
 				@if (Auth::user())
 					<button class="btn btn-success" data-toggle="modal" data-target="#addModal">
-						Tambah Jadwal
+						Tambah Event
 					</button>
 				@endif
 			</div>
@@ -37,3 +37,13 @@
 	@include('jawaban.NomorTiga.script')
 	@include('jawaban.NomorEmpat.script')
 @endsection
+
+<!-- FullCalendar CSS -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css" rel="stylesheet">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- FullCalendar JS -->
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

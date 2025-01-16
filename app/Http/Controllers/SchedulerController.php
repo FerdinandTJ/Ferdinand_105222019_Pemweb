@@ -17,33 +17,28 @@ class SchedulerController extends Controller {
         return view('home.index', compact('events'));
     }
 
-    public function submit (Request $request) {
-
-        $nomorDua = new NomorDua();
-        return $nomorDua->submit($request);
+    public function submit(Request $request) {
+        $scheduler = new NomorDua();
+        return $scheduler->submit($request);
     }
 
-    public function getJson () {
-
-        $nomorEmpat = new NomorEmpat();
-        return $nomorEmpat->getJson(); 
+    public function getJson() {
+        $eventData = new NomorEmpat();
+        return $eventData->getJson(); 
     }
 
-    public function getSelectedData (Request $request) {
-
-        $nomorTiga = new NomorTiga(); 
-        return $nomorTiga->getSelectedData($request);
+    public function getSelectedData(Request $request) {
+        $scheduler = new NomorTiga(); 
+        return $scheduler->getSelectedData($request);
     }
 
-    public function update (Request $request) {
-
-        $nomorTiga = new NomorTiga();
-        return $nomorTiga->update($request);
+    public function update(Request $request) {
+        $scheduler = new NomorTiga();
+        return $scheduler->update($request);
     }
 
-    public function delete (Request $request) {
-
-        $nomorTiga = new NomorTiga();
-        return $nomorTiga->delete($request);
+    public function delete(Request $request) {
+        $scheduler = new NomorTiga();
+        return $scheduler->delete($request);
     }
 }

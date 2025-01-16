@@ -1,0 +1,168 @@
+.table-schedule {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table-schedule th {
+  background-color: #007BFF;
+  color: black;
+  text-align: center;
+  padding: 10px;
+}
+
+.table-schedule td {
+  text-align: center;
+  padding: 10px;
+  vertical-align: middle;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  vertical-align: middle;
+  text-align: center; 
+}
+
+.table-schedule tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.action-buttons {
+  display: inline;
+  gap: 10px; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  font-size: 16px; 
+  display: inline;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; 
+  border: none;
+  transition: all 0.3s ease;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background-color: #FFC107;
+}
+
+.btn-edit:hover {
+  background-color: #FFB300; 
+}
+
+.btn-delete {
+  background-color: #DC3545;
+}
+
+.btn-delete:hover {
+  background-color: #C82333;
+}
+
+.modal-header {
+  background-color: #007BFF; 
+  color: white;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+.modal-content {
+  border-radius: 10px; 
+}
+
+.form-control {
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #007BFF;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.fc {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.fc-toolbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #007BFF; 
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.fc-toolbar .fc-button {
+  background-color: white;
+  color: #007BFF;
+  border: 1px solid #007BFF;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.fc-toolbar .fc-button:hover {
+  background-color: #007BFF;
+  color: white;
+  border: 1px solid white;
+}
+
+.fc-daygrid-day {
+  background-color: white;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.fc-daygrid-day:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.fc-day-today {
+  background-color: #FFEB3B !important;
+  color: black !important;
+  border: 2px solid #FFC107;
+}
+
+.fc-event {
+  color: white !important;
+  border: none !important;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.fc-event:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  z-index: 1000;
+}
+
+.fc-toolbar-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
